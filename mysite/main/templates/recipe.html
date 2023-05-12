@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block name %}Recipe{% endblock %}
+{% block content2 %}
+<!-- body -->
+ 
+<body class="main-layout Recipes_page">
+{% endblock %}
+ 
+    <!-- header -->
+
+    <!-- end header -->
+
+    <!-- section -->
+{% block content %}
+    <section class="resip_section">
+        <div class="container">
+            <div class="row">
+               
+                <div class="col-md-12">
+            <div class="owl-carousel owl-theme">
+
+            {% for i in recipes %}  
+                <div class="item">
+                    <div class="product_blog_img">
+                        <img src="{{ i.img.url }}" alt="#" />
+                    </div>
+                    <div class="product_blog_cont">
+                        <h3>{{ i.name }}</h3>
+                        <h4><span class="theme_color">$</span>{{ i.price }}</h4>
+                    </div>
+                </div>
+            {% endfor%}
+            </div>
+        </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content1 %}
+    <!-- footer -->
+
+    <!-- end footer -->
+
+
+<script>
+         $(document).ready(function() {
+           var owl = $('.owl-carousel');
+           owl.owlCarousel({
+             margin: 10,
+             nav: true,
+             loop: true,
+             responsive: {
+               0: {
+                 items: 1
+               },
+               600: {
+                 items: 2
+               },
+               1000: {
+                 items: 5
+               }
+             }
+           })
+         })
+      </script>
+
+</body>
+
+</html>
+
+{% endblock %}

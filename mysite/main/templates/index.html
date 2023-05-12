@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+
+{% block name %}Home{% endblock %}
+
+{% block content %}
+<!-- body -->
+
+
+    <!-- header -->
+ 
+    <!-- end header -->
+    <!-- start slider section -->
+    <div class="slider_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div id="main_slider" class="carousel vert slide" data-ride="carousel" data-interval="5000">
+                            <div class="carousel-inner">
+                                {% for i in home_reference %}
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="slider_cont">
+                                                <h3>{{ i.reference }}</h3>
+                                                <p>{{ i.info }}</p>
+                                                <a class="main_bt_border" href="#">Order Now</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="slider_image full text_align_center">
+                                                =
+                                                    <img class="img-responsive" src="{{ i.img.url }}" alt="#" />
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+
+                                
+                            </div>
+                            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                                <i class="fa fa-angle-up"></i>
+                            </a>
+                            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end slider section -->
+
+    <!-- section -->
+    <section class="resip_section">
+        <div class="container">
+            <div class="row">
+         <div class="col-md-12">
+       <div class="ourheading">
+    <h2>Our Recipes</h2>
+  </div>
+</div>    
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="owl-carousel owl-theme">
+              {% for i in recipes %}
+                <div class="item">
+                    <div class="product_blog_img">
+                        <img src="{{ i.img.url }}" alt="#" />
+                    </div>
+                    <div class="product_blog_cont">
+                        <h3>{{ i.name }}</h3>
+                        <h4><span class="theme_color">$</span>{{ i.price }}</h4>
+                    </div>
+                </div>
+              {% endfor%}
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+<div class="bg_bg">
+<!-- about -->
+<div class="about">
+    <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+             <div class="title">
+                <i><img src="../static/images/title.png" alt="#"/></i>
+                <h2>About Our Food & Restaurant</h2>
+                <span>{{ about.aboutt }}
+                </span>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+             <div class="about_box">
+                 <h3>Best Food</h3>
+                 <p>{{ about.best_food }}</p>
+                 <a href="#">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+             </div>
+         </div>
+          <div class="col-xl-5 col-lg-5 col-md-10 col-sm-12 about_img_boxpdnt">
+             <div class="about_img">
+                 <figure><img src="{{ about.img.url }}" alt="#/"></figure>
+             </div>
+         </div>      
+       </div> 
+    </div>
+</div>
+<!-- end about -->
+
+<!-- blog -->
+<div class="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <i><img src="../static/images/title.png" alt="#"/></i>
+          <h2>Our Blog</h2>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for i in blog %}
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
+        <div class="blog_box">
+          <div class="blog_img_box">
+            <figure><img src="{{ i.img.url }}" alt="#"/>
+             <span>{{ i.date }}</span>
+            </figure>
+          </div>
+          <h3>{{ i.name }}</h3>
+          <p>{{ i.food }}</p>
+        </div>
+      </div>
+       {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- end blog -->
+
+<!-- Our Client -->
+<div class="Client">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <i><img src="../static/images/title.png" alt="#"/></i>
+          <h2>Our Client</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+         <div class="Client_box">
+           <img src="../static/images/client.jpg" alt="#"/>
+           <h3>Roock Due</h3>
+           <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden in the middle of text.</p>
+           <i><img src="../static/images/client_icon.png" alt="#"/></i>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>  
+<!-- end Our Client -->
+</div>
+{% endblock %}
+    <!-- footer -->
+
+    <!-- end footer -->
+
+{% block content1 %}
+    <style>
+    #owl-demo .item{
+        margin: 3px;
+    }
+    #owl-demo .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    </style>
+
+     
+      <script>
+         $(document).ready(function() {
+           var owl = $('.owl-carousel');
+           owl.owlCarousel({
+             margin: 10,
+             nav: true,
+             loop: true,
+             responsive: {
+               0: {
+                 items: 1
+               },
+               600: {
+                 items: 2
+               },
+               1000: {
+                 items: 5
+               }
+             }
+           })
+         })
+      </script>
+
+</body>
+
+</html>
+{% endblock %}
